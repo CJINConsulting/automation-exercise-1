@@ -1,7 +1,5 @@
 # How to Run and View Selenium Cucumber Tests
 
-[![Build Status](https://github.com/CJINConsulting/automation-exercise-1/actions/workflows/test.yml/badge.svg)](https://github.com/CJINConsulting/automation-exercise-1/actions)
-
 This project contains UI automation tests for [Selenium's demo web form](https://www.selenium.dev/selenium/web/web-form.html), using Java, Selenium, Cucumber, and JUnit 5.
 
 ---
