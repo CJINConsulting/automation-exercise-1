@@ -56,15 +56,6 @@ mvn test -Dcucumber.execution.verbose=true
 
 ---
 
-## Public Report Access
-
-Test reports may also be made publicly available via GitHub Pages.
-
-> When enabled, you'll be able to view the latest report at URL:
-> `https://CJINConsulting.github.io/automation-exercise-1/cucumber-report.html`
-
----
-
 ## Directory Structure
 
 ```
