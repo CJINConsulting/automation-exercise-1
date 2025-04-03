@@ -61,7 +61,7 @@ mvn test -Dcucumber.execution.verbose=true
 Test reports may also be made publicly available via GitHub Pages.
 
 > When enabled, you'll be able to view the latest report at a URL like:
-> `https://your-username.github.io/your-repo/cucumber-report.html`
+> `https://CJINConsulting.github.io/your-repo/cucumber-report.html`
 
 ---
 

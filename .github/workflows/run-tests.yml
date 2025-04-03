@@ -22,6 +22,21 @@ jobs:
       - name: Build and run tests
         run: mvn clean test
 
+      - name: Summarize Cucumber results
+        if: always()
+        run: |
+          echo "### 🧪 Test Summary" >> $GITHUB_STEP_SUMMARY
+          total=$(jq length target/cucumber-report.json)
+          failed=$(jq '[.[] | .elements[] | select(.steps[]?.result.status == "failed")] | length' target/cucumber-report.json)
+          passed=$((total - failed))
+
+          echo "- Total Scenarios: $total" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Passed: $passed" >> $GITHUB_STEP_SUMMARY
+          echo "- ❌ Failed: $failed" >> $GITHUB_STEP_SUMMARY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[🔗 View HTML Report](https://CJINConsulting.github.io/automation-exercise-1/)" >> $GITHUB_STEP_SUMMARY
+
       - name: Copy report to pages folder
         run: |
           mkdir -p gh-pages
