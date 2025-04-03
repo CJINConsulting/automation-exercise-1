@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hooks {
 
@@ -18,7 +19,17 @@ public class Hooks {
     @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+
+        ChromeOptions options = new ChromeOptions();
+
+        if (isCiEnvironment()) {
+            options.addArguments("--headless=new"); // Use "--headless" if "--headless=new" causes issues
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--window-size=1920,1080");
+        }
+
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         context.setDriver(driver);
     }
@@ -29,5 +40,9 @@ public class Hooks {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    private boolean isCiEnvironment() {
+        return System.getenv("CI") != null || System.getenv("GITHUB_ACTIONS") != null;
     }
 }
