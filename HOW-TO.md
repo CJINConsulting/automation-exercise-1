@@ -1,12 +1,14 @@
 # How to Run and View Selenium Cucumber Tests
 
+[![Build Status](https://github.com/CJINConsulting/automation-exercise-1/actions/workflows/test.yml/badge.svg)](https://github.com/CJINConsulting/automation-exercise-1/actions)
+
 This project contains UI automation tests for [Selenium's demo web form](https://www.selenium.dev/selenium/web/web-form.html), using Java, Selenium, Cucumber, and JUnit 5.
 
 ---
 
 ## Running Tests Locally
 
-Make sure you have **Java 17+** and **Maven 3.8+** installed.
+Make sure you have **Java 21+** and **Maven 3.8+** installed.
 
 ### Run the full suite:
 
@@ -60,8 +62,8 @@ mvn test -Dcucumber.execution.verbose=true
 
 Test reports may also be made publicly available via GitHub Pages.
 
-> When enabled, you'll be able to view the latest report at a URL like:
-> `https://CJINConsulting.github.io/your-repo/cucumber-report.html`
+> When enabled, you'll be able to view the latest report at URL:
+> `https://CJINConsulting.github.io/automation-exercise-1/cucumber-report.html`
 
 ---
 
@@ -121,4 +123,6 @@ Some tests I added here may go into that pack - submitting empty forms, invalid 
 ## Accessibility Testing
 Add accessibility assertions after page load or specific interactions. (e.g. axe-core)
 
+## Github Pages
+If the project was public, it may be worth including a GH page for the html report for scheduled action runs.
 
